@@ -1,3 +1,11 @@
+<script setup>
+ import Header from './Header.vue'
+ import Layout from './Layout.vue'
+</script>
 <template>
-    Hola mundo
+    <Layout>
+        <template #header>
+            <Header></Header>
+        </template>
+    </Layout>
 </template>
