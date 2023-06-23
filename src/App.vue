@@ -1,13 +1,13 @@
 <script setup>
-  import SplashScreen from './components/SplashScreen.vue'
-  import { defineAsyncComponent   } from 'vue'
+import SplashScreen from './components/SplashScreen.vue'
+import { defineAsyncComponent } from 'vue'
 
-  const Home = defineAsyncComponent(() => {
+const Home = defineAsyncComponent(() => {
   return new Promise((resolve, reject) => {
     // ...load component from server
     setTimeout(() => {
-          resolve(import("./components/Home.vue"));
-        }, 2500);
+      resolve(import("./components/Home.vue"));
+    }, 2500);
   })
 })
 
@@ -16,11 +16,13 @@
 </script>
 
 <template>
-
-  
   <Suspense>
-    <template #default><Home /></template>
-    <template #fallback><SplashScreen /></template>
+    <template #default>
+      <Home />
+    </template>
+    <template #fallback>
+      <SplashScreen />
+    </template>
   </Suspense>
 </template>
 
@@ -32,8 +34,8 @@ body,
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 * {
   --brand-green: #04b500;
   --brand-blue: #0689b0;
-}
-</style>
+}</style>
