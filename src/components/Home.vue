@@ -5,10 +5,11 @@ import Layout from './Layout.vue'
 import Resume from "./Resume/Index.vue";
 import Movements from "./Movements/Index.vue";
 import Action from "./Action.vue";
-
+import Graphic from "./Resume/Graphic.vue";
 
 const amount = ref(null);
 const label = ref(null);
+const amounts = ref( [100, 200, 500, 200, -400, -600, -300, 0, 300, 500])
 const movements = ref([{
                 id: 0,
                 title: "Movimiento 1",
@@ -54,28 +55,26 @@ const movements = ref([{
 
 <template>
     <Layout>
-        <template #header>
-            <Header></Header>
-        </template>
-        <template #resume>
-            <Resume
-                :total-label="'Ahorro total'"
-                :label="label"
-                :total-amount="1000000"
-                :amount="amount"
-            >
-                <template #graphic>
-                    graphic
-                </template>
-                <template #action>
-                    <Action/>
-                </template>
-            </Resume>
-        </template>
-        <template #movements>
-            <Movements
-                :movements="movements"
-            />
-        </template>
+      <template #header>
+        <Header></Header>
+      </template>
+      <template #resume>
+        <Resume
+          :total-label="'Ahorro total'"
+          :label="label"
+          :total-amount="1000000"
+          :amount="amount"
+        >
+          <template #graphic>
+            <Graphic :amounts="amounts" />
+          </template>
+          <template #action>
+            <Action />
+          </template>
+        </Resume>
+      </template>
+      <template #movements>
+        <Movements :movements="movements" />
+      </template>
     </Layout>
-</template>
+  </template>
