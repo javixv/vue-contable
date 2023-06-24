@@ -1,7 +1,7 @@
 <template>
     <main>
         <p>{{ labelVisual }}</p>
-        <h1>{{ amountCurrency  }}</h1>
+        <h1>{{ amountCurrency }}</h1>
         <div class="graphic">
             <slot name="graphic"></slot>
         </div>
@@ -14,9 +14,9 @@
 
 
 <script>
-const currencyFormatter = new Intl.NumberFormat("es-MX", {
-  style: "currency",
-  currency: "MXN",
+const currencyFormatter = new Intl.NumberFormat("es-SV", {
+    style: "currency",
+    currency: "USD",
 });
 
 export default {
@@ -38,12 +38,12 @@ export default {
     },
     computed: {
         labelVisual() {
-            return this.label !== null ? this.label : this.totalLabel; 
+            return this.label !== null ? this.label : this.totalLabel;
         },
         amountVisual() {
             return this.amount !== null ? this.amount : this.totalAmount;
         },
-        amountCurrency(){
+        amountCurrency() {
             return currencyFormatter.format(this.amountVisual)
         }
     },

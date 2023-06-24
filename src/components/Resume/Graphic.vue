@@ -1,34 +1,9 @@
 <template>
     <div>
-        <svg
-            @touchstart="tap"
-            @touchmove="tap"
-            @touchend="untap"
-            viewBox="0 0 300 200"
-        >
-            <line
-                stroke="#c4c4c4"
-                stroke-width="2"
-                x1="0"
-                :y1="zero"
-                x2="300"
-                :y2="zero"
-            />
-            <polyline
-                fill="none"
-                stroke="#0689B0"
-                stroke-width="2"
-                :points="points"
-            />
-            <line
-                v-show="showPointer"
-                stroke="#04b500"
-                stroke-width="2"
-                :x1="pointer"
-                y1="0"
-                :x2="pointer"
-                y2="200"
-            />
+        <svg @touchstart="tap" @touchmove="tap" @touchend="untap" viewBox="0 0 300 200">
+            <line stroke="#c4c4c4" stroke-width="2" x1="0" :y1="zero" x2="300" :y2="zero" />
+            <polyline fill="none" stroke="#0689B0" stroke-width="2" :points="points" />
+            <line v-show="showPointer" stroke="#04b500" stroke-width="2" :x1="pointer" y1="0" :x2="pointer" y2="200" />
         </svg>
         <p>Últimos 30 días</p>
         <div>{{ zero }}</div>
@@ -88,9 +63,10 @@ const untap = () => {
 
 <style scoped>
 svg {
-  width: 100%;
+    width: 100%;
 }
+
 p {
-  text-align: center;
+    text-align: center;
 }
 </style>
